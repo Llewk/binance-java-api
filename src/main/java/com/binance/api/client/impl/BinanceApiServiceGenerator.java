@@ -90,7 +90,7 @@ public class BinanceApiServiceGenerator {
                 return response.body();
             } else {
                 BinanceApiError apiError = getBinanceApiError(response);
-                throw new BinanceApiException(apiError);
+                throw new BinanceApiException(apiError, response.headers());
             }
         } catch (IOException e) {
             throw new BinanceApiException(e);

@@ -1,6 +1,7 @@
 package com.binance.api.client.exception;
 
 import com.binance.api.client.BinanceApiError;
+import okhttp3.Headers;
 
 /**
  * An exception which can occur while invoking methods of the Binance API.
@@ -8,18 +9,25 @@ import com.binance.api.client.BinanceApiError;
 public class BinanceApiException extends RuntimeException {
 
     private static final long serialVersionUID = 3788669840036201041L;
-/**
+
+  /**
    * Error response object returned by Binance API.
    */
   private BinanceApiError error;
+
+  /**
+   * Headers associated with the error..
+   */
+  private Headers headers;
 
   /**
    * Instantiates a new binance api exception.
    *
    * @param error an error response object
    */
-  public BinanceApiException(BinanceApiError error) {
+  public BinanceApiException(BinanceApiError error, Headers headers) {
     this.error = error;
+    this.headers = headers;
   }
 
   /**
@@ -63,6 +71,11 @@ public class BinanceApiException extends RuntimeException {
   public BinanceApiError getError() {
     return error;
   }
+
+  /**
+   * @return the response headers object from Binance API..
+   */
+  public Headers getHeaders() { return headers; }
 
   @Override
   public String getMessage() {

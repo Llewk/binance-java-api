@@ -33,7 +33,7 @@ public class BinanceApiCallbackAdapter<T> implements Callback<T> {
       }
       try {
         BinanceApiError apiError = getBinanceApiError(response);
-        onFailure(call, new BinanceApiException(apiError));
+        onFailure(call, new BinanceApiException(apiError, response.headers()));
       } catch (IOException e) {
         onFailure(call, new BinanceApiException(e));
       }
