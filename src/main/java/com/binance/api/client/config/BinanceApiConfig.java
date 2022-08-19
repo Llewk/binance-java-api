@@ -49,7 +49,7 @@ public class BinanceApiConfig {
 	 * REST API base URL.
 	 */
 	public static String getApiBaseUrl() {
-		return String.format("https://api3.%s", getBaseDomain());
+		return String.format("https://api2.%s", getBaseDomain());
 	}
 
 	/**
