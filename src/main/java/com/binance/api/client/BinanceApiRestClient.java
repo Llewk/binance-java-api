@@ -120,6 +120,13 @@ public interface BinanceApiRestClient {
   TickerStatistics get24HrPriceStatistics(String symbol);
 
   /**
+   * Get 24 hour price change statistics.
+   *
+   * @param symbols list of ticker symbols (e.g. ["BTCUSDT","ETHUSDT"])
+   */
+  List<TickerStatistics> get24HrPriceStatistics(List<String> symbols);
+
+  /**
    * Get 24 hour price change statistics for all symbols.
    */
   List<TickerStatistics> getAll24HrPriceStatistics();
